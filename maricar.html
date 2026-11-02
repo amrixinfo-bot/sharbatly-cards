@@ -202,7 +202,7 @@ const C = {
   dept: "Procurement",
   email: "maricar.astaquinta@sharbatlyfruit.com",
   web: "https://www.sharbatlyfruit.com",
-  phone: "",       // e.g. "+966 5X XXX XXXX" — Call + WhatsApp appear automatically
+  phone: "+966 55 287 1470",       // e.g. "+966 5X XXX XXXX" — Call + WhatsApp appear automatically
   whatsapp: "",    // digits only, e.g. "9665XXXXXXXX"; blank = use phone
   brochure: "",    // company-profile PDF link; blank = opens website
   city: "Jeddah", country: "Saudi Arabia",
@@ -245,7 +245,7 @@ function vcard() {
 }
 function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("on"),2400)}
 
-$("saveBtn").addEventListener("click", () => { location.href = "maricar.vcf?v=2"; });
+$("saveBtn").addEventListener("click", () => { location.href = "maricar.vcf?v=3"; });
 $("shareBtn").addEventListener("click", async () => {
   const d = { title: full + " · " + C.org, text: `${full} — ${C.title}, ${C.org}`, url: location.href };
   try { if (navigator.share) { await navigator.share(d); return; }

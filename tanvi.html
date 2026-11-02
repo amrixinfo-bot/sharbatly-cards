@@ -245,22 +245,7 @@ function vcard() {
 }
 function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("on"),2400)}
 
-$("saveBtn").addEventListener("click", async () => {
-  const data = vcard(), name = full.replace(/\s+/g,"-") + "-Sharbatly.vcf";
-  const blob = new Blob([data], { type: "text/vcard;charset=utf-8" });
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  try {
-    const file = new File([blob], name, { type: "text/vcard" });
-    if (isMobile && navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: full }); return; }
-  } catch (e) { if (e && e.name === "AbortError") return; }
-  try {
-    const url = URL.createObjectURL(blob);
-    const a = Object.assign(document.createElement("a"), { href: url, download: name });
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 4000);
-    toast("Contact downloaded — open it to save");
-  } catch (e) { location.href = "data:text/vcard;charset=utf-8," + encodeURIComponent(data); }
-});
+$("saveBtn").addEventListener("click", () => { location.href = "tanvi.vcf?v=2"; });
 $("shareBtn").addEventListener("click", async () => {
   const d = { title: full + " · " + C.org, text: `${full} — ${C.title}, ${C.org}`, url: location.href };
   try { if (navigator.share) { await navigator.share(d); return; }

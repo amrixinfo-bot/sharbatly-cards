@@ -245,7 +245,7 @@ function vcard() {
 }
 function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("on"),2400)}
 
-$("saveBtn").addEventListener("click", () => { location.href = "maricar.vcf?v=3"; });
+$("saveBtn").addEventListener("click", () => { location.href = "maricar.vcf?v=4"; });
 $("shareBtn").addEventListener("click", async () => {
   const d = { title: full + " · " + C.org, text: `${full} — ${C.title}, ${C.org}`, url: location.href };
   try { if (navigator.share) { await navigator.share(d); return; }
